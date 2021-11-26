@@ -32,8 +32,8 @@ module ActiveModelSerializers
       # @param value [Object] the value to be transformed
       # @param options [Object] serializable resource options
       # @return [Symbol] the default transform for the adapter
-      def self.transform_key_casing!(value, options)
-        CaseTransform.send(transform(options), value)
+      def self.transform_key_casing!(value, options, case_transform=CaseTransform)
+        case_transform.send(transform(options), value)
       end
 
       def self.cache_key
