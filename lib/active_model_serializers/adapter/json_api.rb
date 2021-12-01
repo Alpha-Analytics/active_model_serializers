@@ -65,8 +65,8 @@ module ActiveModelSerializers
                      failure_document
                    end
 
-        case_transform = serializer.respond_to?(:key_case_transform) ? serializer.key_case_transform : CaseTransform
-        self.class.transform_key_casing!(document, instance_options, case_transform)
+        key_transform = serializer.respond_to?(:key_transform) ? serializer.key_transform : CaseTransform
+        self.class.transform_key_casing!(document, instance_options, key_transform)
       end
 
       def fragment_cache(cached_hash, non_cached_hash)
